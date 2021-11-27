@@ -370,11 +370,7 @@ void SkipList<Key, Comparator>::Insert(const Key& key) {
 template <typename Key, class Comparator>
 bool SkipList<Key, Comparator>::Contains(const Key& key) const {
   Node* x = FindGreaterOrEqual(key, nullptr);
-  if (x != nullptr && Equal(key, x->key)) {
-    return true;
-  } else {
-    return false;
-  }
+  return x != nullptr && Equal(key, x->key);
 }
 
 }  // namespace leveldb
